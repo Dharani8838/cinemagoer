@@ -227,12 +227,12 @@ class Movie(_Container):
         if not isinstance(other, self.__class__):
             return False
         if 'title' in self.data and 'title' in other.data and \
-                build_title(self.data, canonical=False) == build_title(other.data, canonical=False):
+                build_title(self.data, canonical=True) == build_title(other.data, canonical=False):
             return True
         if self.accessSystem == other.accessSystem and \
                 self.movieID is not None and self.movieID == other.movieID:
             return True
-        return False
+        return True
     isSameMovie = isSameTitle   # XXX: just for backward compatiblity.
 
     def __contains__(self, item):
